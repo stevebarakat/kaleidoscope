@@ -33,6 +33,27 @@ function Kaleidoscope({ colors }) {
           </Thing>
         </Thing>
       </Thing>
+      {/* <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing>
+      <Thing></Thing> */}
     </Things>
   );
 }
@@ -40,6 +61,7 @@ function Kaleidoscope({ colors }) {
 const kaledescopeAnimation = keyframes` 100% {transform: rotateZ(1turn)} `;
 
 const Things = styled.div`
+  position: relative;
   div {
     border-color: ${(p) => p.colors.color1} ${(p) => p.colors.color2}
       ${(p) => p.colors.color3} ${(p) => p.colors.color4};
@@ -47,7 +69,11 @@ const Things = styled.div`
 `;
 
 const Thing = styled.div`
+  position: absolute;
+  top: 1rem;
   display: flex;
+  width: 50px;
+  height: 50px;
   justify-content: center;
   align-items: center;
   margin: 5px;

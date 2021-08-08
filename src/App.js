@@ -41,7 +41,42 @@ const App = () => {
           onChange={(e) => setColors({ ...colors, color4: e.target.value })}
         />
       </fieldset>
-      <Kaleidoscope colors={colors} />
+      <div
+        style={{
+          position: "absolute",
+          // left: "0px",
+          // transform: "rotate(90deg)",
+        }}
+      >
+        <Kaleidoscope colors={colors} />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          // left: "150px",
+          transform: "rotate(90deg)",
+        }}
+      >
+        {/* <Kaleidoscope colors={colors} /> */}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          // left: "300px",
+          transform: "rotate(180deg)",
+        }}
+      >
+        {/* <Kaleidoscope colors={colors} /> */}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          // left: "450px",
+          transform: "rotate(270deg)",
+        }}
+      >
+        {/* <Kaleidoscope colors={colors} /> */}
+      </div>
     </div>
   );
 };

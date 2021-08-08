@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
 import "./App.css";
 
-function Kaleidoscope({ colors }) {
+function Kaleidoscope({ colors, position }) {
   return (
-    <Things colors={colors}>
+    <Things colors={colors} position={position}>
       <Thing>
         <Thing>
           <Thing>
@@ -18,7 +18,7 @@ function Kaleidoscope({ colors }) {
                             <Thing>
                               <Thing>
                                 <Thing>
-                                  <Thing></Thing>
+                                  <Thing />
                                 </Thing>
                               </Thing>
                             </Thing>
@@ -37,12 +37,6 @@ function Kaleidoscope({ colors }) {
   );
 }
 
-// const kaledescopeAnimation = keyframes`
-//   0% {transform: rotate(-10deg)}
-//   50% {transform: rotate(10deg)}
-//   100% {transform: rotate(-10deg)}
-// `;
-
 const kaledescopeAnimation = keyframes` 
   100% {transform: rotate(1turn)}
 `;
@@ -53,11 +47,11 @@ const Things = styled.div`
   div {
     border-color: ${(p) => p.colors.color1} ${(p) => p.colors.color2}
       ${(p) => p.colors.color3} ${(p) => p.colors.color4};
+    position: ${(p) => p.position};
   }
 `;
 
 const Thing = styled.div`
-  position: absolute;
   top: 1rem;
   display: flex;
   width: 100%;

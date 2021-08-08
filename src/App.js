@@ -9,47 +9,34 @@ const App = () => {
     color3: "#00FF00",
     color4: "#FF0000",
   });
+  const [position, setPosition] = useState("relative");
   const handleSetColors = (colors) => setColors(colors);
   return (
     <div>
-      {/* COLORS */}
+      <div>
+        <input
+          type="radio"
+          id="relative"
+          name="position"
+          value="relative"
+          defaultChecked
+          onInput={(e) => setPosition(e.target.value)}
+        />
+        <label htmlFor="relative">relative</label>
+      </div>
+      {console.log(position)}
+      <div>
+        <input
+          type="radio"
+          id="absolute"
+          name="position"
+          value="absolute"
+          onInput={(e) => setPosition(e.target.value)}
+        />
+        <label htmlFor="absolute">absolute</label>
+      </div>
       <Colors colors={colors} handleSetColors={handleSetColors} />
-      <div
-        style={{
-          position: "absolute",
-          // left: "0px",
-          // transform: "rotate(90deg)",
-        }}
-      >
-        <Kaleidoscope colors={colors} />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          // left: "150px",
-          transform: "rotate(90deg)",
-        }}
-      >
-        {/* <Kaleidoscope colors={colors} /> */}
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          // left: "300px",
-          transform: "rotate(180deg)",
-        }}
-      >
-        {/* <Kaleidoscope colors={colors} /> */}
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          // left: "450px",
-          transform: "rotate(270deg)",
-        }}
-      >
-        {/* <Kaleidoscope colors={colors} /> */}
-      </div>
+      <Kaleidoscope colors={colors} position={position} />
     </div>
   );
 };

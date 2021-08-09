@@ -3,7 +3,6 @@ import Kaleidoscope from "./Kaleidoscope";
 import ColorControls from "./ColorControls";
 import RingControls from "./RingControls";
 import AreaControls from "./AreaControls";
-import PatternControls from "./PatternControls";
 
 const App = () => {
   const [colors, setColors] = useState({
@@ -19,12 +18,11 @@ const App = () => {
     x2: 0.79,
     y2: 1.22,
   });
-  const handleSetParams = (params) => setParams(params);
   const [radius, setRadius] = useState(15);
   const handleSetRadius = (radius) => setRadius(radius);
   const [position, setPosition] = useState("relative");
   const handleSetPosition = (position) => setPosition(position);
-  const [ringStyle, setRingStyle] = useState("solid");
+  const [ringStyle, setRingStyle] = useState("groove");
   const handleSetRingStyle = (style) => setRingStyle(style);
   const [weight, setWeight] = useState(15);
   const handleSetWeight = (weight) => setWeight(weight);
@@ -48,7 +46,6 @@ const App = () => {
           weight={weight}
           speed={speed}
         />
-        <PatternControls params={params} handleSetParams={handleSetParams} />
         <AreaControls handleSetPosition={handleSetPosition} />
       </div>
       <div className="flex">

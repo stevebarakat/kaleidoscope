@@ -60,8 +60,8 @@ const kaledescopeAnimation = keyframes`
 `;
 
 const Things = styled.div`
-  position: absolute;
-  margin-top: -550px;
+  position: relative;
+  /* margin-top: -550px; */
   div {
     border-color: ${(p) => p.colors.color1} ${(p) => p.colors.color2}
       ${(p) => p.colors.color3} ${(p) => p.colors.color4};

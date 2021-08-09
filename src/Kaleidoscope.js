@@ -67,7 +67,7 @@ const Thing = styled.div`
   /* justify-content: center; */
   align-items: center;
   margin: 5px;
-  border: 3px dashed transparent;
+  border: 10px dashed transparent;
   animation: ${kaledescopeAnimation} 45s cubic-bezier(0.35, -0.14, 0.79, 1.22)
     infinite;
 `;

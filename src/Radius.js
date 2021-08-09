@@ -41,6 +41,34 @@ const Radius = ({ radius, handleSetRadius, handleSetRingStyle }) => {
           onInput={(e) => handleSetRingStyle(e.target.value)}
         />
         <label htmlFor="dashed"> Dashed</label>
+        <input
+          type="radio"
+          id="dotted"
+          name="style"
+          value="dotted"
+          defaultChecked
+          onInput={(e) => handleSetRingStyle(e.target.value)}
+        />
+        <label htmlFor="dotted"> Dotted</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="double"
+          name="style"
+          value="double"
+          onInput={(e) => handleSetRingStyle(e.target.value)}
+        />
+        <label htmlFor="double"> Double</label>
+        <input
+          type="radio"
+          id="groove"
+          name="style"
+          value="groove"
+          defaultChecked
+          onInput={(e) => handleSetRingStyle(e.target.value)}
+        />
+        <label htmlFor="groove"> Groovy</label>
       </div>
       {/* END RING STYLE */}
     </fieldset>

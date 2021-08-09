@@ -1,6 +1,6 @@
 import React from "react";
 
-const Position = ({ handleSetPosition }) => {
+const AreaControls = ({ handleSetPosition }) => {
   return (
     <fieldset>
       <legend>Area Controls</legend>
@@ -13,7 +13,7 @@ const Position = ({ handleSetPosition }) => {
           defaultChecked
           onInput={(e) => handleSetPosition(e.target.value)}
         />
-        <label htmlFor="relative">relative</label>
+        <label htmlFor="relative">Variant 1</label>
       </div>
       <div>
         <input
@@ -23,10 +23,20 @@ const Position = ({ handleSetPosition }) => {
           value="absolute"
           onInput={(e) => handleSetPosition(e.target.value)}
         />
-        <label htmlFor="absolute">absolute</label>
+        <label htmlFor="static">Variant 2</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="static"
+          name="position"
+          value="static"
+          onInput={(e) => handleSetPosition(e.target.value)}
+        />
+        <label htmlFor="static">Variant 3</label>
       </div>
     </fieldset>
   );
 };
 
-export default Position;
+export default AreaControls;

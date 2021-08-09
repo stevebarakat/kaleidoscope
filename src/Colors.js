@@ -3,6 +3,8 @@ import React from "react";
 const Colors = ({ colors, handleSetColors }) => {
   return (
     <fieldset>
+      <legend>Color Controls</legend>
+
       <label htmlFor="color1">Color1</label>
       <input
         id="color1"

@@ -1,9 +1,14 @@
 import styled, { keyframes } from "styled-components";
 import "./App.css";
 
-function Kaleidoscope({ colors, position }) {
+function Kaleidoscope({ colors, position, radius, ringStyle }) {
   return (
-    <Things colors={colors} position={position}>
+    <Things
+      colors={colors}
+      position={position}
+      radius={radius}
+      ringStyle={ringStyle}
+    >
       <Thing>
         <Thing>
           <Thing>
@@ -38,7 +43,7 @@ function Kaleidoscope({ colors, position }) {
 }
 
 const kaledescopeAnimation = keyframes` 
-  100% {transform: rotate(1turn)}
+  100% {transform: rotate(5turn)}
 `;
 
 const Things = styled.div`
@@ -47,7 +52,9 @@ const Things = styled.div`
   div {
     border-color: ${(p) => p.colors.color1} ${(p) => p.colors.color2}
       ${(p) => p.colors.color3} ${(p) => p.colors.color4};
+    border-style: ${(p) => p.ringStyle};
     position: ${(p) => p.position};
+    border-radius: ${(p) => p.radius + "%"};
   }
 `;
 
@@ -57,12 +64,11 @@ const Thing = styled.div`
   width: 100%;
   /* height: 50px; */
   aspect-ratio: 1/1;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   margin: 5px;
-  border: 10px solid transparent;
-  border-radius: 50%;
-  animation: ${kaledescopeAnimation} 5s cubic-bezier(0.35, -0.14, 0.79, 1.22)
+  border: 3px dashed transparent;
+  animation: ${kaledescopeAnimation} 45s cubic-bezier(0.35, -0.14, 0.79, 1.22)
     infinite;
 `;
 

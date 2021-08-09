@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Kaleidoscope from "./Kaleidoscope";
 import Colors from "./Colors";
+import Radius from "./Radius";
+import Position from "./Position";
 
 const App = () => {
   const [colors, setColors] = useState({
@@ -9,34 +11,29 @@ const App = () => {
     color3: "#00FF00",
     color4: "#FF0000",
   });
-  const [position, setPosition] = useState("relative");
   const handleSetColors = (colors) => setColors(colors);
+  const [radius, setRadius] = useState(15);
+  const handleSetRadius = (radius) => setRadius(radius);
+  const [position, setPosition] = useState("relative");
+  const handleSetPosition = (position) => setPosition(position);
+  const [ringStyle, setRingStyle] = useState("solid");
+  const handleSetRingStyle = (style) => setRingStyle(style);
+
   return (
     <div>
-      <div>
-        <input
-          type="radio"
-          id="relative"
-          name="position"
-          value="relative"
-          defaultChecked
-          onInput={(e) => setPosition(e.target.value)}
-        />
-        <label htmlFor="relative">relative</label>
-      </div>
-      {console.log(position)}
-      <div>
-        <input
-          type="radio"
-          id="absolute"
-          name="position"
-          value="absolute"
-          onInput={(e) => setPosition(e.target.value)}
-        />
-        <label htmlFor="absolute">absolute</label>
-      </div>
       <Colors colors={colors} handleSetColors={handleSetColors} />
-      <Kaleidoscope colors={colors} position={position} />
+      <Radius
+        radius={radius}
+        handleSetRadius={handleSetRadius}
+        handleSetRingStyle={handleSetRingStyle}
+      />
+      <Position handleSetPosition={handleSetPosition} />
+      <Kaleidoscope
+        colors={colors}
+        position={position}
+        radius={radius}
+        ringStyle={ringStyle}
+      />
     </div>
   );
 };

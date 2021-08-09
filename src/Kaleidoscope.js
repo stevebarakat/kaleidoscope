@@ -1,15 +1,26 @@
 import styled, { keyframes } from "styled-components";
 import "./App.css";
 
-function Kaleidoscope({ colors, position, radius, ringStyle, weight, size }) {
+function Kaleidoscope({
+  colors,
+  position,
+  radius,
+  ringStyle,
+  weight,
+  size,
+  speed,
+  params,
+}) {
   return (
     <Things
       colors={colors}
+      params={params}
       position={position}
       radius={radius}
       ringStyle={ringStyle}
       weight={weight}
       size={size}
+      speed={speed}
     >
       <Thing>
         <Thing>
@@ -49,33 +60,32 @@ const kaledescopeAnimation = keyframes`
 `;
 
 const Things = styled.div`
-  transform: ${(p) =>
-    p.position === `static` ? `translateY(0)` : `translateY(50%)`};
-  position: relative;
+  position: absolute;
   div {
+    margin-top: ${(p) => (p.position === "absolute" ? "-550px" : null)};
     border-color: ${(p) => p.colors.color1} ${(p) => p.colors.color2}
       ${(p) => p.colors.color3} ${(p) => p.colors.color4};
+    align-self: ${(p) => (p.position === "align" ? "center" : "revert")};
     border-style: ${(p) => p.ringStyle};
     position: ${(p) => p.position};
     border-radius: ${(p) => p.radius + "%"};
     border-width: ${(p) => p.weight + "px"};
     height: ${(p) => p.size + "em"};
+    animation: ${kaledescopeAnimation};
+    animation-timing-function: cubic-bezier(0.35, -0.14, 0.79, 1.22);
+    animation-duration: ${({ speed }) => parseFloat(speed) + "s"};
+    animation-iteration-count: infinite;
   }
 `;
 
 const Thing = styled.div`
-  top: 1rem;
+  transition: all 1.5s ease-in;
   display: flex;
   width: 100%;
   max-height: 50vh;
   justify-content: center;
-  align-self: center;
   aspect-ratio: 1/1;
-  margin: 5px;
-  animation: ${kaledescopeAnimation} 45s cubic-bezier(0.35, -0.14, 0.79, 1.22)
-    infinite;
-  animation: ${kaledescopeAnimation} 45s cubic-bezier(0.75, -0.04, -0.89, 1.82)
-    infinite;
+  margin: 3rem;
 `;
 
 export default Kaleidoscope;

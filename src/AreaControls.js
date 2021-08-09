@@ -23,17 +23,17 @@ const AreaControls = ({ handleSetPosition }) => {
           value="absolute"
           onInput={(e) => handleSetPosition(e.target.value)}
         />
-        <label htmlFor="static">Variant 2</label>
+        <label htmlFor="align">Variant 2</label>
       </div>
       <div>
         <input
           type="radio"
-          id="static"
+          id="align"
           name="position"
-          value="static"
+          value="align"
           onInput={(e) => handleSetPosition(e.target.value)}
         />
-        <label htmlFor="static">Variant 3</label>
+        <label htmlFor="align">Variant 3</label>
       </div>
     </fieldset>
   );

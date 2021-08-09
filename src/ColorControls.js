@@ -1,6 +1,6 @@
 import React from "react";
 
-const Colors = ({ colors, handleSetColors }) => {
+const ColorControls = ({ colors, handleSetColors }) => {
   return (
     <fieldset>
       <legend>Color Controls</legend>
@@ -37,4 +37,4 @@ const Colors = ({ colors, handleSetColors }) => {
   );
 };
 
-export default Colors;
+export default ColorControls;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Kaleidoscope from "./Kaleidoscope";
-import Colors from "./Colors";
+import ColorControls from "./ColorControls";
 import RingControls from "./RingControls";
 import AreaControls from "./AreaControls";
+import PatternControls from "./PatternControls";
 
 const App = () => {
   const [colors, setColors] = useState({
@@ -12,6 +13,13 @@ const App = () => {
     color4: "#FF0000",
   });
   const handleSetColors = (colors) => setColors(colors);
+  const [params, setParams] = useState({
+    x1: 0.35,
+    y1: -0.14,
+    x2: 0.79,
+    y2: 1.22,
+  });
+  const handleSetParams = (params) => setParams(params);
   const [radius, setRadius] = useState(15);
   const handleSetRadius = (radius) => setRadius(radius);
   const [position, setPosition] = useState("relative");
@@ -22,20 +30,25 @@ const App = () => {
   const handleSetWeight = (weight) => setWeight(weight);
   const [size, setSize] = useState(15);
   const handleSetSize = (size) => setSize(size);
+  const [speed, setSpeed] = useState(15);
+  const handleSetSpeed = (speed) => setSpeed(speed);
 
   return (
     <div style={{ width: "100vw" }}>
       <div className="control-panel">
-        <Colors colors={colors} handleSetColors={handleSetColors} />
+        <ColorControls colors={colors} handleSetColors={handleSetColors} />
         <RingControls
           radius={radius}
           handleSetRadius={handleSetRadius}
           handleSetRingStyle={handleSetRingStyle}
           handleSetWeight={handleSetWeight}
           handleSetSize={handleSetSize}
+          handleSetSpeed={handleSetSpeed}
           size={size}
           weight={weight}
+          speed={speed}
         />
+        <PatternControls params={params} handleSetParams={handleSetParams} />
         <AreaControls handleSetPosition={handleSetPosition} />
       </div>
       <div className="flex">
@@ -47,6 +60,8 @@ const App = () => {
           ringStyle={ringStyle}
           weight={weight}
           size={size}
+          speed={speed}
+          params={params}
         />
       </div>
     </div>

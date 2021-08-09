@@ -61,8 +61,8 @@ const kaledescopeAnimation = keyframes`
 
 const Things = styled.div`
   position: absolute;
+  margin-top: -550px;
   div {
-    margin-top: ${(p) => (p.position === "absolute" ? "-550px" : null)};
     border-color: ${(p) => p.colors.color1} ${(p) => p.colors.color2}
       ${(p) => p.colors.color3} ${(p) => p.colors.color4};
     align-self: ${(p) => (p.position === "align" ? "center" : "revert")};
@@ -85,7 +85,7 @@ const Thing = styled.div`
   max-height: 50vh;
   justify-content: center;
   aspect-ratio: 1/1;
-  margin: 3rem;
+  margin: 0.25rem;
 `;
 
 export default Kaleidoscope;
